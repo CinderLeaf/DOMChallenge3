@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-    table,td{border:1px solid seagreen}
-</style>
+    <meta charset="UTF-8">
+    <title>DOM Challenges II Button</title>
+    <style>
+        table,td{
+            border:1px solid seagreen;
+            height: 50px;
+            width: 50px;
+            background-color: seagreen;
+        }
+    </style>
 </head>
 <body>
 
 <p>Click the buttons to create and delete row(s) or column(s) for the table.</p>
-
+<!--  #1: add rows to the grid -->
 <button onclick="appendRow()">Add Row</button>
+<!--  #2: add columns to the grid -->
 <button onclick="appendColumn()">Add Column</button>
+<!--  #3: remove rows from the grid -->
 <button onclick="deleteRow()">Delete Row</button>
+<!--  #4: remove columns from the grid -->
 <button onclick="deleteColumn()">Delele Column</button>
 
 <br>
 <table id="myTable">
   <tr>
-    <td>Cell</td>
+    <td></td>
   </tr>
 </table>
 
+<script src="script.js"></script>
 
 </body>
 </html>

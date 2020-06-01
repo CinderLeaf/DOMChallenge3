@@ -1,3 +1,4 @@
+// #1: add rows to the grid
 function createCell(cell, text, style) {
     var div = document.createElement('div'), 
         txt = document.createTextNode(text); 
@@ -8,6 +9,7 @@ function createCell(cell, text, style) {
     cell.appendChild(div);                   
 }
 
+// #1: add rows to the grid
 function appendRow() {
     var tbl = document.getElementById('myTable'),
         row = tbl.insertRow(tbl.rows.length),
@@ -18,6 +20,7 @@ function appendRow() {
     }
 }
 
+//#2: add columns to the grid
 function appendColumn() {
     var tbl = document.getElementById('myTable'),
         i;
@@ -27,6 +30,7 @@ function appendColumn() {
     }
 }
 
+// #3: remove rows from the grid 
 function deleteRow() {
     var tbl = document.getElementById('myTable'), 
         lastRow = tbl.rows.length - 1,             
@@ -37,6 +41,7 @@ function deleteRow() {
     }
 }
  
+// #4: remove columns from the grid
 function deleteColumn() {
     var tbl = document.getElementById('myTable'),
         lastCol = tbl.rows[0].cells.length - 1,   
