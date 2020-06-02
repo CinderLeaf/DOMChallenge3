@@ -9,9 +9,8 @@ let tbl = document.getElementById("myTable");
 function appendRow() {
     let newRow = tbl.insertRow(-1);
     for(let i = 0; i < columns; i++) {
-        let  newCell = newRow.insertCell(i);
+        let  newCell = newRow.insertCell(-1);
     }
-    //tbl.appendChild(newRow);
     rows++;
 }
 
@@ -24,13 +23,13 @@ function appendColumn() {
     columns++;
 }
 
-/* Feature #3: remove rows from the grid */
+//#3: remove rows from the grid
 function deleteRow() {
     tbl.deleteRow(-1);
     rows--;
 }
 
-/* Feature #4: remove columns from the grid */
+//#4: remove columns from the grid
 function deleteColumn() {
     let selectAllRows = document.querySelectorAll("tr");
     for(let i = 0; i < rows; i++) {
@@ -38,3 +37,5 @@ function deleteColumn() {
     }
     columns--;
 }
+
+
