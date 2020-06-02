@@ -49,10 +49,12 @@ function deleteColumn() {
     columns--;
 }
 /*-----------------------------------------------------*/
-//
+//this function can set class, addEventListener to each cell
+//this function most do after add and delete cells. 
+//if not, most cell did not get the class, and addEventListener properties
 function setProperties(cell) {
 
-    // #6 click on a single cell, changing its color to the currently selected color
+    // #6 click on a single cell, callback changeColor function
     cell.classList.add("noColor");
     cell.addEventListener("click", changeColor);
     
@@ -64,7 +66,7 @@ function setProperties(cell) {
     cell.addEventListener("mousemove", e => {
       if (colored) {
         cell.style.backgroundColor = currentColor;
-        cell.classList.remove("uncolored");
+        cell.classList.remove("noColor");
       }
     });
     cell.addEventListener("mouseup", e => {
@@ -74,37 +76,43 @@ function setProperties(cell) {
     });
 }
 
+//put all the cell in an unpacked array
 let tblCells = document.getElementsByTagName("td");
 let tblCellsArray = [...tblCells];
-//call the setProperties function add property
+
+//call the setProperties function add properties to all cell
 for (let i=0; i < tblCellsArray.length; i++) {
     const cell = tblCellsArray[i];
     setProperties(cell);
 }
-let currentColor;
 
-//
+// get the selected color chose from the html
+let currentColor;
+function selectedColor(color) {
+    currentColor = color;
+}
+// callback: changing cell color to the currently selected color
 function changeColor(){
     this.style.backgroundColor = currentColor;
     this.classList.remove("noColor");
 }
-
-function selectedColor(color) {
-    currentColor = color;
-}
 /*-----------------------------------------------------*/
+// #7-#9 have it own unpacked array call.
+// if share an unpacked array,...
+// ... the function only on work on the initial anount of row and column. 
 
-// #7: fill all uncolored cells with the currently selected color -->
+// #7: fill all uncolored cells with the currently selected color 
 function fillNonColored(){
+    //put all the cell in an unpacked array
     let fillCell = document.getElementsByTagName("td");
     let fillCellarray = [...fillCell];
 
-    // filter out the cells that are colored
+    // filter the cells that have class property
     const nonColored = fillCellarray.filter(cell => {
         return cell.classList.contains("noColor");
     });
 
-    // change the background color of each uncolored cell and remove "uncolored" class
+    // change the background color of each uncolored cell and remove "noColor" class
     nonColored.forEach(cell => {
         cell.style.backgroundColor = currentColor;
         cell.classList.remove("noColor");
@@ -113,21 +121,22 @@ function fillNonColored(){
     
 // #8: fill all cells with the currently selected color -->
 function fillAllColor(){
+    //put all the cell in an unpacked array;
     let fillAllCells = document.getElementsByTagName("td");
     let fillAllCellarray = [...fillAllCells];
-   
+   //fill alll the cell to selected color
     fillAllCellarray.forEach(cell => {
         cell.style.backgroundColor = currentColor;
         cell.classList.remove("noColor");
     });
 }
 
-// #9: clear all cells/restore all cells to their original/initial color -->
+// #9: clear all cells/restore all cells to their initial color 
 function clearAll(){
+    //put all the cell in an unpacked array;
     let allCells = document.getElementsByTagName("td");
     let allCellsrray = [...allCells];
-
-    // add the noColor class, and give back the initial background Color
+    // add the noColor class to cell, and give back the initial background Color
     allCellsrray.forEach(cell => {
         cell.style.backgroundColor = 'darkblue';
         cell.classList.add("noColor");
