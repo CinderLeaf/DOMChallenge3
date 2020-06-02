@@ -1,4 +1,4 @@
-// #1: add rows to the grid
+/*
 function createCell(cell, text, style) {
     let div = document.createElement('div');
     let txt = document.createTextNode(text); 
@@ -7,21 +7,25 @@ function createCell(cell, text, style) {
     div.setAttribute('class', style);        
     div.setAttribute('className', style);    
     cell.appendChild(div);                   
-}
+ }*/
+ var amountofRows = 1;
+ var amountofColumns = 2;
 
 // #1: add rows to the grid
 function appendRow() {
-    let tbl = document.getElementById('myTable');
-    let row = tbl.insertRow(tbl.rows.length);
 
-    for (let i = 0; i < tbl.rows[0].cells.length; i++) {
-        createCell(row.insertCell(i), i, 'row');
+    let tbl = document.getElementById('myTable');
+    let newrow = document.createElement("tr");
+
+    for (let i = 0; i < 2; i++) {
+        newrow.insertCell(i);
     }
 }
 
 //#2: add columns to the grid
 function appendColumn() {
     let tbl = document.getElementById('myTable');
+    let row = tbl.insertRow(tbl.rows.length);
 
     for (leti = 0; i < tbl.rows.length; i++) {
         createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
@@ -31,7 +35,7 @@ function appendColumn() {
 // #3: remove rows from the grid 
 function deleteRow() {
     let tbl = document.getElementById('myTable');
-    let   lastRow = tbl.rows.length - 1;             
+    let lastRow = tbl.rows.length - 1;             
 
     for (let i = lastRow; i > 0; i--) {
         tbl.deleteRow(i);
