@@ -8,6 +8,7 @@
             border:1px solid seagreen;
             height: 50px;
             width: 100px;
+            background-color: darkblue;
         }
     </style>
 </head>
@@ -22,6 +23,18 @@
 <button onclick="deleteRow()">Delete Row</button>
 <!--  #4: remove columns from the grid -->
 <button onclick="deleteColumn()">Delele Column</button>
+<!--  #5: add a dropdown menu of colors
+      #6: click on a single cell, changing its color to the currently selected color
+ -->
+<select id = "color-select"  onchange="selectedColor(this.value)">
+    <option value="" selected disabled hidden>Select Color:</option>
+    <option value="#CCCCFF">Lavender Blue</option>
+    <option value="#FFCCD9">Pink Lace </option>
+    <option value="#CCFFCC">Snowy Mint</option>
+    <option value="#CCF2FF">Pattens Blue</option>
+  </select>
+
+
 
 
 <table id="myTable">
